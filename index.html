@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <meta name="referrer" content="no-referrer">
+</head>
+<body>
+  <p id="msg">Redirecting to login...</p>
+  <script>
+    var TARGET = "http://10.11.x.x/auth";   // server IP + your auth route path
+    var q = location.search;
+    if (q.indexOf("code=") !== -1 || q.indexOf("error=") !== -1) {
+      location.replace(TARGET + q);
+    } else {
+      document.getElementById("msg").textContent = "Invalid login response.";
+    }
+  </script>
+</body>
+</html>
